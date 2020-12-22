@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Londrina+Solid|Nunito:400,300);
+$blue: #53bdff;
+$green: #2eb933;
+$drk-blue: darken($blue, 10%);
+$purple: #944eff;
+
+$height-navbar: 7vh;
+$max-with-container: 400px;
+
+html,
+body {
+  font-family: "Londrina Solid", cursive;
+  height: 100%;
+}
+body {
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.navbar {
+  background-color: #2ad468;
+  min-height: $height-navbar;
+  height: $height-navbar;
+  z-index: 2;
+
+  .navbar-container {
+    max-width: $max-with-container;
+    width: 100%;
+    margin: auto;
+    display: none;
+  }
+
+  #navbarBack {
+    cursor: pointer;
+  }
+}
+
+.choosenTheme,
+.hangman {
+  max-width: $max-with-container;
+  margin: auto;
+  width: 100%;
+
+  &.h-with-navbar {
+    height: calc(100vh - #{$height-navbar});
+  }
+}
+
+.choosenTheme,
+.hangman {
+  padding: 10px;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+}
+
+/* choosenTheme Style */
+.choosenTheme {
+  z-index: 1;
+
+  .card-columns {
+    column-count: 2;
+
+    .card {
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      background: lighten($purple, 5%);
+      color: white;
+      transition: 0.3s;
+      text-shadow: 1px 2px 0 $purple;
+      margin: 0 auto;
+      &:hover {
+        background: lighten($purple, 20%);
+      }
+    }
+  }
+}
+
+/* Hangman Style */
+#showHangman {
+  display: none;
+}
+
+.hangman {
+  z-index: 1;
+  text-align: center;
+  top: $height-navbar;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: $blue;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 20px;
+  color: gray;
+  line-height: 1.3;
+}
+
+@keyframes letteranim {
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+.word {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 3rem;
+
+  .letter {
+    display: inline-block;
+    color: transparent;
+    border-bottom: 5px solid $blue;
+    margin: 0 10px;
+    font-size: 50px;
+    padding: 10px;
+    transition: 0.5s;
+    text-transform: uppercase;
+
+    &.space {
+      border-bottom: none;
+    }
+  }
+}
+
+.correct {
+  color: $blue;
+  text-shadow: 1px 2px 0 $drk-blue;
+  animation: letteranim 0.3s ease;
+}
+
+.guessImage {
+  height: 200%;
+  display: flex;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    align-self: center;
+  }
+}
+
+.guessForm {
+  height: 75px;
+  display: flex;
+
+  input,
+  .guessButton {
+    font-family: "Londrina Solid", cursive;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 30px;
+    border: 1px solid #aaa;
+    color: gray;
+  }
+
+  .guessButton {
+    width: 50%;
+    border: none;
+    font-size: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: $blue;
+    color: white;
+    transition: 0.3s;
+    text-shadow: 1px 2px 0 $drk-blue;
+    &:hover {
+      background: $drk-blue;
+    }
+  }
+}
+
+.wrong {
+  height: 100%;
+  font-size: 20px;
+
+  p {
+    margin: 0.5rem auto;
+  }
+
+  .wrongLetters {
+    display: flex;
+    overflow-x: auto;
+    padding: 0;
+    margin-bottom: 0;
+
+    li {
+      display: inline-block;
+      font-size: 40px;
+      background: lighten(red, 15%);
+      text-shadow: 1px 2px 0 red;
+      padding: 10px;
+      color: white;
+      text-transform: uppercase;
+      margin-right: 10px;
+      animation: letteranim 0.3s ease;
+    }
+  }
+}
+
+.message {
+  display: none;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  /*   height: 100%; */
+  background: darken($drk-blue, 10%);
+  z-index: 12402402;
+
+  h1 {
+    display: none;
+    color: white;
+    text-shadow: 1px 2px 0 #ccc;
+  }
+
+  .highlight {
+    color: yellow;
+    text-transform: capitalize;
+  }
+
+  .text {
+    color: white;
+    font-size: 30px;
+    display: none;
+    p {
+      color: white;
+    }
+    .highlight {
+      font-size: 40px;
+    }
+  }
+  .muted {
+    margin: 20px auto;
+    color: lighten($blue, 10%);
+  }
+}
+
+.button {
+  display: none;
+  margin: 10px 0;
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: lighten($green, 5%);
+  color: white;
+  transition: 0.3s;
+  text-shadow: 1px 2px 0 $green;
+  font-family: "Londrina Solid", cursive;
+  margin: 0 auto;
+  &:hover {
+    background: lighten($green, 20%);
+  }
+}

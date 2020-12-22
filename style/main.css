@@ -1,0 +1,248 @@
+@import url(https://fonts.googleapis.com/css?family=Londrina+Solid|Nunito:400,300);
+html,
+body {
+  font-family: "Londrina Solid", cursive;
+  height: 100%;
+}
+
+body {
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.navbar {
+  background-color: #2ad468;
+  min-height: 7vh;
+  height: 7vh;
+  z-index: 2;
+}
+.navbar .navbar-container {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  display: none;
+}
+.navbar #navbarBack {
+  cursor: pointer;
+}
+
+.choosenTheme,
+.hangman {
+  max-width: 400px;
+  margin: auto;
+  width: 100%;
+}
+.choosenTheme.h-with-navbar,
+.hangman.h-with-navbar {
+  height: calc(100vh - 7vh);
+}
+
+.choosenTheme,
+.hangman {
+  padding: 10px;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+}
+
+/* choosenTheme Style */
+.choosenTheme {
+  z-index: 1;
+}
+.choosenTheme .card-columns {
+  column-count: 2;
+}
+.choosenTheme .card-columns .card {
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  background: #a368ff;
+  color: white;
+  transition: 0.3s;
+  text-shadow: 1px 2px 0 #944eff;
+  margin: 0 auto;
+}
+.choosenTheme .card-columns .card:hover {
+  background: #d2b4ff;
+}
+
+/* Hangman Style */
+#showHangman {
+  display: none;
+}
+
+.hangman {
+  z-index: 1;
+  text-align: center;
+  top: 7vh;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #53bdff;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 20px;
+  color: gray;
+  line-height: 1.3;
+}
+
+@keyframes letteranim {
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+.word {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+.word .letter {
+  display: inline-block;
+  color: transparent;
+  border-bottom: 5px solid #53bdff;
+  margin: 0 10px;
+  font-size: 50px;
+  padding: 10px;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.word .letter.space {
+  border-bottom: none;
+}
+
+.correct {
+  color: #53bdff;
+  text-shadow: 1px 2px 0 #20a9ff;
+  animation: letteranim 0.3s ease;
+}
+
+.guessImage {
+  height: 200%;
+  display: flex;
+}
+.guessImage img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  align-self: center;
+}
+
+.guessForm {
+  height: 75px;
+  display: flex;
+}
+.guessForm input,
+.guessForm .guessButton {
+  font-family: "Londrina Solid", cursive;
+}
+.guessForm input[type=text] {
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  font-size: 30px;
+  border: 1px solid #aaa;
+  color: gray;
+}
+.guessForm .guessButton {
+  width: 50%;
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #53bdff;
+  color: white;
+  transition: 0.3s;
+  text-shadow: 1px 2px 0 #20a9ff;
+}
+.guessForm .guessButton:hover {
+  background: #20a9ff;
+}
+
+.wrong {
+  height: 100%;
+  font-size: 20px;
+}
+.wrong p {
+  margin: 0.5rem auto;
+}
+.wrong .wrongLetters {
+  display: flex;
+  overflow-x: auto;
+  padding: 0;
+  margin-bottom: 0;
+}
+.wrong .wrongLetters li {
+  display: inline-block;
+  font-size: 40px;
+  background: #ff4d4d;
+  text-shadow: 1px 2px 0 red;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  animation: letteranim 0.3s ease;
+}
+
+.message {
+  display: none;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  /*   height: 100%; */
+  background: #0091ec;
+  z-index: 12402402;
+}
+.message h1 {
+  display: none;
+  color: white;
+  text-shadow: 1px 2px 0 #ccc;
+}
+.message .highlight {
+  color: yellow;
+  text-transform: capitalize;
+}
+.message .text {
+  color: white;
+  font-size: 30px;
+  display: none;
+}
+.message .text p {
+  color: white;
+}
+.message .text .highlight {
+  font-size: 40px;
+}
+.message .muted {
+  margin: 20px auto;
+  color: #86d1ff;
+}
+
+.button {
+  display: none;
+  margin: 10px 0;
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #34cd39;
+  color: white;
+  transition: 0.3s;
+  text-shadow: 1px 2px 0 #2eb933;
+  font-family: "Londrina Solid", cursive;
+  margin: 0 auto;
+}
+.button:hover {
+  background: #71dc75;
+}
+
+/*# sourceMappingURL=main.css.map */
