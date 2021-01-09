@@ -1,6 +1,8 @@
 const themes = [
   { name: "Programming Language", key: "programmingLanguage" },
   { name: "Framework", key: "framework" },
+  { name: "Component Computer", key: "componentComputer" },
+  { name: "Tools", key: "tools" },
 ];
 
 (function ($, window, undefined) {
@@ -15,7 +17,7 @@ const themes = [
   // set html for list themes
   var frag = "";
   $.each(themes, function (key, val) {
-    frag += `<div class="card cardTheme" data-val="${val.key}">
+    frag += `<div class="card cardTheme mb-3" data-val="${val.key}">
       <div class="card-body">${val.name}</div>
     </div>`;
   });

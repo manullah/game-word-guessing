@@ -7,13 +7,14 @@ body {
 
 body {
   background: #ffffff;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .navbar {
+  position: relative;
   background-color: #2ad468;
-  min-height: 7vh;
-  height: 7vh;
+  min-height: 10vh;
+  height: 10vh;
   z-index: 2;
 }
 .navbar .navbar-container {
@@ -34,14 +35,13 @@ body {
 }
 .choosenTheme.h-with-navbar,
 .hangman.h-with-navbar {
-  height: calc(100vh - 7vh);
+  height: calc(100vh - 10vh);
 }
 
 .choosenTheme,
 .hangman {
   padding: 10px;
   flex-direction: column;
-  height: 100vh;
   display: flex;
 }
 
@@ -53,6 +53,8 @@ body {
   column-count: 2;
 }
 .choosenTheme .card-columns .card {
+  display: inline-block;
+  width: 100%;
   margin: 10px 0;
   border: none;
   cursor: pointer;
@@ -74,7 +76,7 @@ body {
 .hangman {
   z-index: 1;
   text-align: center;
-  top: 7vh;
+  top: 10vh;
 }
 
 h1 {

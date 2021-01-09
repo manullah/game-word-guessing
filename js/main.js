@@ -17,18 +17,10 @@
         (this.guessForm = $(".guessForm")),
         (this.guessLetterInput = $(".guessLetter")),
         (this.maxLife = 10),
-        (this.goodSound = new Audio(
-          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"
-        )),
-        (this.badSound = new Audio(
-          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/bad.mp3"
-        )),
-        (this.winSound = new Audio(
-          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/win.mp3"
-        )),
-        (this.loseSound = new Audio(
-          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/lose.mp3"
-        )),
+        (this.goodSound = new Audio("sounds/goodbell.mp3")),
+        (this.badSound = new Audio("sounds/bad.mp3")),
+        (this.winSound = new Audio("sounds/win.mp3")),
+        (this.loseSound = new Audio("sounds/lose.mp3")),
         this.setup();
     },
 
